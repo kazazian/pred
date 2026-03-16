@@ -150,6 +150,11 @@ h1 {
   overflow: hidden;
 }
 
+#hands img {
+  width: 105%;
+  height: auto;
+}
+
 #table {
   z-index: 10;
   width: 907px;
@@ -216,7 +221,7 @@ h1 {
   }
 
   #hands img {
-    max-width: 80%;
+    max-width: 76%;
   }
 
   #table {
