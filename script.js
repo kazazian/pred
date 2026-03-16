@@ -13,4 +13,34 @@ document.addEventListener('DOMContentLoaded', () => {
             broken = !broken
         });
     })
+
+    const containerOfWindows = document.querySelector(
+    "[data-js='second-screen-windows-container']",
+  );
+
+  if (!containerOfWindows) {
+    return;
+  }
+
+  const WINDOW_SIZE = 200;
+  const WINDOW_GAP = 50;
+  const WINDOW_STEP = WINDOW_SIZE + WINDOW_GAP;
+
+  function fillContainer() {
+    const containerWidth = containerOfWindows.getBoundingClientRect().width;
+    const columns = Math.floor(containerWidth / WINDOW_STEP);
+
+    containerOfWindows.style.gridTemplateColumns = `repeat(auto-fit, ${WINDOW_SIZE}px)`;
+    containerOfWindows.innerHTML = "";
+
+    for (let i = 0; i < columns; i += 1) {
+      const window = document.createElement("img");
+      window.classList.add("window");
+      window.src = "images/window.png";
+      containerOfWindows.appendChild(window);
+    }
+  }
+
+  window.addEventListener("resize", fillContainer);
+  fillContainer();
 });
