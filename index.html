@@ -17,15 +17,15 @@
         <div style="height: 1px;">
             <div class="lightsContainer">
                 <img class="lights light-left" style="margin-right: -560px; pointer-events: auto;" data-js="lightOn" src="images/LightOn.png">
-                <img class="lights"  data-js="lightOn" src="images/LightOn.png">
+                <img class="lights light-right"  data-js="lightOn" src="images/LightOn.png">
             </div>
         </div>
-        <div style="display: flex; flex-direction: row; justify-content: space-around; z-index: 2; gap: 138px;pointer-events: none">
-            <img class="windows" src="images/window.svg">
+        <div class="twoEl">
+            <img class="windows window-left" src="images/window.svg">
             <div class="doors">
                 <img style="background-size: cover;" src="images/doorFront.svg">
             </div>
-            <img class="windows" src="images/window.svg">
+            <img class="windows window-right" src="images/window.svg">
         </div>
 
     </div>
@@ -43,8 +43,11 @@
         </div>
         <div id="table">
           <div class="table-container">
-            <img src="images/TableBottom.png" alt="" />
-            <img src="images/TableTop.png" alt="" />
+            <picture>
+              <source media="(max-width: 1024px)" srcset="images/TableBottom2.png" />
+              <img src="images/TableBottom.png" alt="" />
+            </picture>
+            <img class="table-top" src="images/TableTop.png" alt="" />
           </div>
         </div>
       </div>

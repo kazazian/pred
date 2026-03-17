@@ -1,19 +1,20 @@
 @import url('reset.css');
 @import url('fonts.css');
 * {
+    box-sizing: border-box;
     font-family: "Amatic SC";
 }
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    overflow-x: clip;
+    overflow-x: hidden;
     overflow-y: auto;
+    /* background-color: black; */
 }
 .first {
     background-color: black;
     display: flex;
-    
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -24,7 +25,7 @@ body {
     container-type: size;
     container-name: test;
     .windows {
-        margin-top: 36px;
+        margin-top: 20px;
         width: 313px;
     }
     .lightsContainer {
@@ -36,6 +37,7 @@ body {
         z-index: 1;
         @container test (max-height: 900px) {
             .lights{
+                /* margin-bottom: 128px; */
                 margin-bottom: 24px;
             }
         }
@@ -44,7 +46,9 @@ body {
         }
         @container test (min-height: 1800px) {
             align-items: flex-start;
-        }
+        
+}
+
     }
 }
 .doors {
@@ -62,41 +66,66 @@ body {
     width: 1240px;
     height: 1240px;
 }
-.second {
-    background-color: black;
-    display: flex;
-    padding: 0 240px;
-    flex-direction: column;
-    width: 100%;
-    max-width: 100%;
-    height: 125vh;
-}
-.textt {
-    font-size: 96px;
-    color: #FF10B7;
-    letter-spacing: -1px;
-    padding: 30px 30px;
-    display: flex;
-    justify-content: center;
+.twoEl{
+  display: flex; 
+  flex-direction: row; 
+  justify-content: space-around;
+  z-index: 2; 
+  gap: 138px;
+  pointer-events: none;
 }
 
+@media screen and (max-width: 1024px){
+    .light-right {
+        display: none;
+    }
+    .light-left {
+    margin-right: 180px !important;
+}
+    .window-right {
+        display: none;
+    }
+}
+@media screen and (max-width: 1300px){
+    .twoEl{  
+      gap: 50px;
+    }
+    .doors {
+    height: 780px;
+    }
+    .lights {
+    width: 1154px;
+    }
+}
+@media screen and (max-width: 1170px){
+    .twoEl{  
+      gap: 50px;
+    }
+    .doors {
+    height: 680px;
+    }
+    .lights {
+    width: 1154px;
+    }
+    .first .windows {
+        margin-top: 0;
+        width: 280px;
+
+    }  
+}
 
 
-
-/* img {
-  display: block;
-  max-width: 100%;
-} */
 
 .second {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 100px;
-  min-height: 100vh;
+  gap: 10px;
+  min-height: 120vh;
   overflow: hidden;
   background-color: #000;
+  width: 100%;
 }
 
 h1 {
@@ -111,7 +140,7 @@ h1 {
 
 #ribbon {
   position: absolute;
-  bottom: 0;
+  bottom: 80px;
   left: 50%;
   z-index: 100;
   width: 140vw;
@@ -128,7 +157,7 @@ h1 {
   align-items: flex-end;
   justify-content: space-between;
   width: 100%;
-  max-width: 1700px;
+  max-width: 1920px;
 }
 
 .windows-container {
@@ -138,7 +167,9 @@ h1 {
   display: grid;
   justify-content: center;
   width: 100%;
-  gap: 50px;
+  gap: 40px;
+  flex-wrap: nowrap;
+  display: flex;
 }
 
 #hands {
@@ -146,14 +177,15 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: -100px;
-  overflow: hidden;
-}
+  margin-top: -134px;
 
+
+}
+/* 
 #hands img {
   width: 105%;
   height: auto;
-}
+} */
 
 #table {
   z-index: 10;
@@ -174,6 +206,8 @@ h1 {
   height: 100%;
 }
 
+
+
 .window {
   width: 200px;
   height: auto;
@@ -189,15 +223,13 @@ h1 {
 }
 
 @media screen and (max-width: 1024px) {
-  section {
+  .second {
     gap: 0;
     padding-bottom: 240px;
   }
-
   h1 {
     font-size: 70px;
   }
-
   #ribbon {
     bottom: 290px;
     width: 150vw;
@@ -208,12 +240,10 @@ h1 {
     top: 50%;
     transform: translateY(-50%);
   }
-
   .hands-and-table {
     flex-direction: column;
     align-items: center;
   }
-
   #hands {
     align-items: flex-start;
     height: 500px;
@@ -244,18 +274,16 @@ h1 {
     height: auto;
     transform: translateX(-50%);
   }
+.table-container .table-top {
+  transform: translateX(-389px);
+}
 
   .vignette {
     display: block;
     background: linear-gradient(360deg, #000 20.36%, rgba(0, 0, 0, 0) 50.75%);
   }
+
 }
-
-
-
-
-
-
 
 .third{
     height: 120vh;
@@ -269,6 +297,7 @@ h1 {
     .textt{
         font-size: 110px;
         text-align: center;
+        color: #ff10b7;
     }
 }
 .stairs{

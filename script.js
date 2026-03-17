@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     let lights = document.querySelectorAll('[data-js="lightOn"]');
-    let index = 0;
     lights.forEach((light) => {
         let broken = false;
         light.addEventListener('click', () => {
@@ -23,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   const WINDOW_SIZE = 200;
-  const WINDOW_GAP = 50;
+  const WINDOW_GAP = 20;
   const WINDOW_STEP = WINDOW_SIZE + WINDOW_GAP;
 
   function fillContainer() {
@@ -36,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     for (let i = 0; i < columns; i += 1) {
       const window = document.createElement("img");
       window.classList.add("window");
-      window.src = "images/window.png";
+      window.src = "images/window.svg";
       containerOfWindows.appendChild(window);
     }
   }
