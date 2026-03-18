@@ -286,7 +286,7 @@ h1 {
 }
 
 .third{
-    height: 120vh;
+    height: 110vh;
     overflow: clip;
     background-image: url('../images/third.svg');
     background-size: cover;
@@ -300,18 +300,124 @@ h1 {
         color: #ff10b7;
     }
 }
-.stairs{
+.stairs-scene{
+    position: relative;
     width: 100vw;
     margin-left: calc(50% - 50vw);
+}
+.stairs{
+    width: 100%;
+    /* height: auto;
+    display: block; */
+}
+.stairs-ribbon{
+    position: absolute;
+    left: -14%;
+    top: 47%;
+    z-index: 3;
+    width: 128%;
     height: auto;
-    
+    transform: rotate(-6deg);
 }
 @media (max-width: 768px){
-  .stairs{
+  .stairs-scene{
     width: 150vw;
     margin-left: calc(50% - 75vw);
   }
-  .textt{
-        font-size: 35px;
+  .stairs{
+    width: 100%;
+  }
+  .stairs-ribbon{
+    left: -14%;
+    top: 49%;
+    width: 128%;
+  }
+  .third .textt {
+      font-size: 70px;
+      padding: 50px 5px;
     }
+}
+
+.fourth{
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    background-image: url('../images/fourth.svg');
+    background-size: cover;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 48px 64px;
+}
+
+.fourth-content{
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    gap: 20px;
+}
+
+.switch{
+    width: 445px;
+    height: auto;
+}
+.fourth-text{
+    max-width: 840px;
+    color: #ff24bd;
+    font-size: 96px;
+    text-align: left;
+}
+
+.fire{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 3;
+  width: 100%;
+  min-width: 1280px;
+  height: auto;
+}
+
+@media (max-width: 1024px){
+  .fourth{
+    padding: 40px 28px 0;
+  }
+  /* .fourth-content{
+    gap: 28px;
+  } */
+  .switch{
+    width: 360px;
+  }
+  .fourth-text{
+    padding-top: 56px;
+    max-width: 560px;
+    font-size: 72px;
+  }
+}
+
+@media (max-width: 768px){
+  .fourth{
+    min-height: 90vh;
+    padding: 28px 20px 0;
+  }
+
+  .fourth-content{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .switch{
+    width: 260px;
+  }
+  .fourth-text{
+    max-width: 100%;
+    font-size: 44px;
+  }
+  .fire{
+    width: 180%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
