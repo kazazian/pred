@@ -13,33 +13,58 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     })
 
+    const handsElement = document.querySelector("#hands");
+    const ribbonElement = document.querySelector("#ribbon");
+    const secondSection = document.querySelector(".second");
     const containerOfWindows = document.querySelector(
-    "[data-js='second-screen-windows-container']",
-  );
+      "[data-js='second-screen-windows-container']",
+    );
 
-  if (!containerOfWindows) {
-    return;
-  }
+    function positionRibbon() {
+      if (!handsElement || !ribbonElement || !secondSection) {
+        return;
+      }
 
-  const WINDOW_SIZE = 200;
-  const WINDOW_GAP = 20;
-  const WINDOW_STEP = WINDOW_SIZE + WINDOW_GAP;
+      if (window.innerWidth < 1024) {
+        ribbonElement.style.top = "auto";
+        ribbonElement.style.bottom = "0px";
+        return;
+      }
 
-  function fillContainer() {
-    const containerWidth = containerOfWindows.getBoundingClientRect().width;
-    const columns = Math.floor(containerWidth / WINDOW_STEP);
+      const handsRect = handsElement.getBoundingClientRect();
+      const sectionRect = secondSection.getBoundingClientRect();
+      const ribbonRect = ribbonElement.getBoundingClientRect();
+      const ribbonTop = handsRect.bottom - sectionRect.top - ribbonRect.height / 2;
 
-    containerOfWindows.style.gridTemplateColumns = `repeat(auto-fit, ${WINDOW_SIZE}px)`;
-    containerOfWindows.innerHTML = "";
-
-    for (let i = 0; i < columns; i += 1) {
-      const window = document.createElement("img");
-      window.classList.add("window");
-      window.src = "images/window.svg";
-      containerOfWindows.appendChild(window);
+      ribbonElement.style.top = `${ribbonTop}px`;
+      ribbonElement.style.bottom = "auto";
     }
-  }
 
-  window.addEventListener("resize", fillContainer);
-  fillContainer();
+    if (containerOfWindows) {
+      const WINDOW_SIZE = 200;
+      const WINDOW_GAP = 20;
+      const WINDOW_STEP = WINDOW_SIZE + WINDOW_GAP;
+
+      function fillContainer() {
+        const containerWidth = containerOfWindows.getBoundingClientRect().width;
+        const columns = Math.floor(containerWidth / WINDOW_STEP);
+
+        containerOfWindows.style.gridTemplateColumns = `repeat(auto-fit, ${WINDOW_SIZE}px)`;
+        containerOfWindows.innerHTML = "";
+
+        for (let i = 0; i < columns; i += 1) {
+          const window = document.createElement("img");
+          window.classList.add("window");
+          window.src = "images/window.svg";
+          containerOfWindows.appendChild(window);
+        }
+      }
+
+      window.addEventListener("resize", fillContainer);
+      fillContainer();
+    }
+
+    window.addEventListener("resize", positionRibbon);
+    window.addEventListener("load", positionRibbon);
+    requestAnimationFrame(positionRibbon);
 });

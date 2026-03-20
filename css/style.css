@@ -121,7 +121,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 60px;
   min-height: 120vh;
   overflow: hidden;
   background-color: #000;
@@ -140,13 +140,13 @@ h1 {
 
 #ribbon {
   position: absolute;
-  bottom: 80px;
+  /* bottom: 80px; */
   left: 50%;
   z-index: 100;
-  width: 140vw;
+  /* width: 140vw;
   min-width: 2370px;
   max-width: none;
-  height: auto;
+  height: auto; */
   transform: translateX(-50%) rotate(-9deg);
 }
 
@@ -162,7 +162,7 @@ h1 {
 
 .windows-container {
   position: absolute;
-  top: 10%;
+    top: 0%;
   z-index: 1;
   display: grid;
   justify-content: center;
@@ -178,6 +178,7 @@ h1 {
   align-items: center;
   justify-content: center;
   margin-top: -134px;
+  width: 40%;
 
 
 }
@@ -191,6 +192,7 @@ h1 {
   z-index: 10;
   width: 907px;
   padding-bottom: 80px;
+  width: 55%;
 }
 
 .table-container {
@@ -225,13 +227,12 @@ h1 {
 @media screen and (max-width: 1024px) {
   .second {
     gap: 0;
-    padding-bottom: 240px;
   }
   h1 {
     font-size: 70px;
   }
   #ribbon {
-    bottom: 290px;
+    bottom: 0px;
     width: 150vw;
     min-width: 1280px;
   }
@@ -248,10 +249,11 @@ h1 {
     align-items: flex-start;
     height: 500px;
     transform: rotate(180deg) scaleX(-1);
+    width: 100%;
   }
 
   #hands img {
-    max-width: 76%;
+    width: 80%;
   }
 
   #table {
@@ -280,6 +282,7 @@ h1 {
 
   .vignette {
     display: block;
+    width: 100%;
     background: linear-gradient(360deg, #000 20.36%, rgba(0, 0, 0, 0) 50.75%);
   }
 
@@ -313,8 +316,6 @@ h1 {
     max-height: 80vh;
     object-fit: fill;
 
-    /* height: auto;
-    display: block; */
 }
 .stairs-ribbon{
     position: absolute;
@@ -328,11 +329,11 @@ h1 {
 @media (max-width: 768px){
   .stairs-scene{
     /* width: 150vw; */
-    margin-left: calc(50% - 75vw);
+    /* margin-left: calc(50% - 75vw); */
   }
-  .stairs{
+  /* .stairs{
     width: 100%;
-  }
+  } */
   .stairs-ribbon{
     left: -14%;
     top: 49%;
