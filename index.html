@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet"
         href='https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Manrope:wght@200..800&family=Press+Start+2P&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap'>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-player/1.4.3/lottie-player.js"></script>    
 
 </head>
 
@@ -21,7 +22,7 @@
             </div>
         </div>
         <div class="twoEl">
-            <img class="windows window-left" src="images/window.svg">
+            <img class="windows window-left" src="test.json">
             <div class="doors">
                 <img style="background-size: cover;" src="images/doorFront.svg">
             </div>
@@ -38,6 +39,7 @@
           data-js="second-screen-windows-container"
         ></div>
         <div id="hands" data-js="hands">
+            <img class="phone" src="images/phone.svg">
           <div class="vignette"></div>
           <img src="images/hands.svg" alt="hands" />
         </div>
@@ -58,9 +60,9 @@
         <img class="third-dark" src="images/dark.svg">
         <p class="textt">по мере прохождения необходимо преодолевать препятствия</p>
         <div class="stairs-scene">
-            <img class="stairs-ribbon stairs-ribbon-top" src="images/ribbon.svg" alt="" />
-            <img class="stairs-ribbon stairs-ribbon-middle" src="images/ribbon.svg" alt="" />
-            <img class="stairs-ribbon stairs-ribbon-bottom" src="images/ribbon.svg" alt="" />
+            <img class="stairs-ribbon stairs-ribbon-top" data-js="stairs-ribbon" src="images/ribbon.svg" alt="" />
+            <img class="stairs-ribbon stairs-ribbon-middle" data-js="stairs-ribbon" src="images/ribbon.svg" alt="" />
+            <img class="stairs-ribbon stairs-ribbon-bottom" data-js="stairs-ribbon" src="images/ribbon.svg" alt="" />
             <img class="stairs" src="images/stairs.png">
         </div>
 
@@ -86,14 +88,32 @@
     </div>
 
     <div class="sixth">
-
-            <img class="star-layer star-layer-1" src="images/star.svg" alt="">
-            <img class="star-layer star-layer-2" src="images/star.svg" alt="">
-            <img class="star-layer star-layer-3" src="images/star.svg" alt="">
-            <img class="star-layer star-layer-4" src="images/star.svg" alt="">
-            <img class="star-layer star-layer-5" src="images/star.svg" alt="">
-            <img class="star-layer star-layer-6" src="images/star.svg" alt="">
-
+        <img class="darken" src="images/dark6.svg">
+        <div class="star-stack">
+            <img class="star-layer star-layer-1" data-js="star-layer" src="images/star.svg" alt="">
+            <img class="star-layer star-layer-2" data-js="star-layer" src="images/star.svg" alt="">
+            <img class="star-layer star-layer-3" data-js="star-layer" src="images/star.svg" alt="">
+            <img class="star-layer star-layer-4" data-js="star-layer" src="images/star.svg" alt="">
+            <img class="star-layer star-layer-5" data-js="star-layer" src="images/star.svg" alt="">
+            <img class="star-layer star-layer-6" data-js="star-layer" src="images/star.svg" alt="">
+        </div>
+        <img class="darken2" src="images/dark6.svg">
+    </div>
+    <div class="seventh">
+        <div class="seventh-inner">
+            <div class="seventh-row">
+                <img class="seventh-window" src="images/window.svg" alt="">
+                <img class="seventh-window" src="images/window.svg" alt="">
+            </div>
+            <p class="seventh-text">ИЛИ НЕТ</p>
+            <div class="seventh-row ">
+                <div class="seventh-lamp-wrap">
+                    <img class="seventh-lamp" src="images/LightOn.png" alt="">
+                    <img class="seventh-lamp" src="images/LightOn.png" alt="">
+                </div>
+                
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>

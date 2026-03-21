@@ -19,6 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const fourthSection = document.querySelector('[data-js="fourth-screen"]');
     const switchElement = document.querySelector('[data-js="fourth-switch"]');
     const fireElement = document.querySelector('[data-js="fourth-fire"]');
+    const starLayers = document.querySelectorAll('[data-js="star-layer"]');
+    const stairsRibbons = document.querySelectorAll('[data-js="stairs-ribbon"]');
     const containerOfWindows = document.querySelector(
       "[data-js='second-screen-windows-container']",
     );
@@ -115,6 +117,60 @@ document.addEventListener('DOMContentLoaded', () => {
 
       updateFourthScreen();
     }
+
+    starLayers.forEach((starLayer) => {
+      const SPIN_DURATION = 1200;
+      const STOP_DURATION = 3000;
+      let currentAnimation = null;
+
+      const playAnimation = (keyframes, options) => {
+        currentAnimation?.cancel();
+        currentAnimation = starLayer.animate(keyframes, options);
+      };
+      starLayer.addEventListener("mouseenter", () => {
+        playAnimation(
+          [
+            { transform: "translate(-50%, -50%) rotate(0deg)" },
+            { transform: "translate(-50%, -50%) rotate(360deg)" },
+          ],
+          {
+            duration: SPIN_DURATION,
+            iterations: Infinity,
+            easing: "linear",
+          },
+        );
+      });
+      starLayer.addEventListener("mouseleave", () => {
+        if (!currentAnimation) {
+          return;
+        }
+        const currentAngle =
+          (((currentAnimation.currentTime ?? 0) % SPIN_DURATION) /
+            SPIN_DURATION) *
+          360;
+        playAnimation(
+          [
+            {
+              transform: `translate(-50%, -50%) rotate(${currentAngle}deg)`,
+            },
+            {
+              transform: `translate(-50%, -50%) rotate(${currentAngle + 540}deg)`,
+            },
+          ],
+          {
+            duration: STOP_DURATION,
+            easing: "cubic-bezier(0.22, 1, 0.36, 1)",
+            fill: "forwards",
+          },
+        );
+      });
+    });
+
+    stairsRibbons.forEach((stairsRibbon) => {
+      stairsRibbon.addEventListener("click", () => {
+        stairsRibbon.style.display = "none";
+      });
+    });
 
     window.addEventListener("resize", positionRibbon);
     window.addEventListener("load", positionRibbon);

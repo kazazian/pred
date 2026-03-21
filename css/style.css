@@ -4,12 +4,20 @@
     box-sizing: border-box;
     font-family: "Amatic SC";
 }
+html {
+    width: 100%;
+    margin: 0;
+    overflow-x: hidden;
+    background-color: #000;
+}
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
+    margin: 0;
     overflow-x: hidden;
-    overflow-y: auto;
+    background-color: #000;
 }
 .first {
     background-color: black;
@@ -20,7 +28,9 @@ body {
     width: 100%;
     max-width: 100%;
     position: relative;
-    height: 100vh;
+    min-height: 100vh;
+    height: auto;
+    overflow: hidden;
     container-type: size;
     container-name: test;
     .windows {
@@ -32,7 +42,7 @@ body {
         flex-direction: row;
         justify-content: space-around;
         align-items: flex-end;
-        height: 850px;
+        height: 810px;
         z-index: 1;
         @container test (max-height: 900px) {
             .lights{
@@ -62,7 +72,7 @@ body {
 }
 .lights {
     width: 1175px;
-    height: 1315px;
+    height: 1230px;
 }
 .twoEl{
   display: flex; 
@@ -136,6 +146,12 @@ body {
   overflow: hidden;
   background-color: #000;
   width: 100%;
+}
+.phone{
+  position: relative;
+  bottom: 136px ;
+  left: 367px;
+  rotate: -7deg;
 }
 
 h1 {
@@ -305,9 +321,11 @@ h1 {
     width: 100%;
     transform: translateX(-50%);
     z-index: 10;
+    pointer-events: none;
 }
 .stairs-scene{
     position: relative;
+    align-items: flex-end;
     width: 100%;
     height: 100%;
     margin-left: calc(50% - 50vw);
@@ -315,6 +333,8 @@ h1 {
 }
 .stairs{
     max-width: 100%;
+    display: flex;
+    align-items: flex-end;
     width: 100%;
     height: 100%;
     max-height: 80vh;
@@ -512,7 +532,7 @@ h1 {
 }
 .fifth{
     position: relative;
-    height: 105vh;
+    height: fit-content;
     overflow: hidden;
     background-image: url('../images/fifth.svg');
     background-size: cover;
@@ -520,7 +540,7 @@ h1 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 20px;
+    gap: 100px;
     
 }
 .fifth h1 {
@@ -624,7 +644,29 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-  
+    background-image: url('../images/star.svg');
+}
+.darken{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+.darken2{
+  position: absolute;
+  bottom:-2px;
+  rotate: 180deg;
+  width: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+.star-stack{
+    position: relative;
+    width: 1280px;
+    height: 1280px;
+    flex: 0 0 1280px;
+    z-index: 1;
 }
 .star-layer{
     position: absolute;
@@ -633,34 +675,106 @@ h1 {
     height: auto;
     transform: translate(-50%, -50%);
     transform-origin: center;
+    will-change: transform;
+    cursor: pointer;
 }
 
 .star-layer-1{
-    width: 140%;
-
+    width: 200%;
 }
 
 .star-layer-2{
     width: 108%;
-
 }
 
 .star-layer-3{
     width: 78%;
-
 }
 
 .star-layer-4{
     width: 52%;
-
 }
 
 .star-layer-5{
     width: 30%;
-
 }
 
 .star-layer-6{
     width: 14%;
+}
+
+.seventh{
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: black;
+
+  
+}
+.seventh-inner{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: min(1200px, 100%);
+  min-height: 100vh;
+  padding: 48px 64px;
+}
+
+.seventh-row{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+
+.seventh-window{
+  width: min(20vw, 260px);
+  height: auto;
+  rotate: 180deg;
 
 }
+
+.seventh-text{
+  align-self: center;
+  color: #ff10b7;
+  font-size: 96px;
+  text-align: center;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 120px;
+}
+
+.seventh-lamp-wrap{
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.seventh-lamp{
+  position: relative;
+  width: 1000px;
+  height: 1000px;
+  rotate: 180deg;
+}
+
+@media screen and (max-width: 1024px){
+  .seventh-inner{
+    padding: 40px 28px;
+  }
+  .seventh-window{
+    width: 220px;
+  }
+  
+}
+
+@media screen and (max-width: 768px){
+  .seventh-text{
+    font-size: 52px;
+  }
+ 
+}
+
