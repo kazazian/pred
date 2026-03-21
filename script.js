@@ -1,21 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
-    let lights = document.querySelectorAll('[data-js="lightOn"]');
+    const lights = document.querySelectorAll('[data-js="lightOn"]');
     lights.forEach((light) => {
         let broken = false;
         light.addEventListener('click', () => {
             const options = ['images/LightOff.png', 'images/LightOn.png'];
             light.src = broken ? options[1] : options[0];
             if (!broken) {
-                let Sound = new Audio("glass.mp3")
-                Sound.play()
+                const sound = new Audio("glass.mp3");
+                sound.play();
             }
-            broken = !broken
+            broken = !broken;
         });
-    })
+    });
 
-    const handsElement = document.querySelector("#hands");
-    const ribbonElement = document.querySelector("#ribbon");
-    const secondSection = document.querySelector(".second");
+    const handsElement = document.querySelector('[data-js="hands"]');
+    const ribbonElement = document.querySelector('[data-js="ribbon"]');
+    const secondSection = document.querySelector('[data-js="second-screen"]');
+    const fourthSection = document.querySelector('[data-js="fourth-screen"]');
+    const switchElement = document.querySelector('[data-js="fourth-switch"]');
+    const fireElement = document.querySelector('[data-js="fourth-fire"]');
     const containerOfWindows = document.querySelector(
       "[data-js='second-screen-windows-container']",
     );
@@ -26,8 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       if (window.innerWidth < 1024) {
-        ribbonElement.style.top = "auto";
-        ribbonElement.style.bottom = "0px";
+        ribbonElement.style.top = "";
+        ribbonElement.style.bottom = "";
         return;
       }
 
@@ -62,6 +65,55 @@ document.addEventListener('DOMContentLoaded', () => {
 
       window.addEventListener("resize", fillContainer);
       fillContainer();
+    }
+
+    if (fourthSection && switchElement && fireElement) {
+      const fireFrames = ["images/fire1.svg", "images/fire2.svg"];
+      let fireFrameIndex = 0;
+      let fireIntervalId = null;
+      let switchIsOn = false;
+      let hasSwitched = false;
+
+      function stopFireAnimation() {
+        if (fireIntervalId !== null) {
+          window.clearInterval(fireIntervalId);
+          fireIntervalId = null;
+        }
+      }
+
+      function startFireAnimation() {
+        stopFireAnimation();
+        fireIntervalId = window.setInterval(() => {
+          fireFrameIndex = (fireFrameIndex + 1) % fireFrames.length;
+          fireElement.src = fireFrames[fireFrameIndex];
+        }, 90);
+      }
+
+      function updateFourthScreen() {
+        switchElement.src = switchIsOn ? "images/on.svg" : "images/off.svg";
+        fourthSection.classList.toggle(
+          "show-extra",
+          hasSwitched && !switchIsOn,
+        );
+
+        if (switchIsOn) {
+          fourthSection.classList.add("fire-active");
+          startFireAnimation();
+        } else {
+          fourthSection.classList.remove("fire-active");
+          stopFireAnimation();
+          fireFrameIndex = 0;
+          fireElement.src = fireFrames[fireFrameIndex];
+        }
+      }
+
+      switchElement.addEventListener("click", () => {
+        hasSwitched = true;
+        switchIsOn = !switchIsOn;
+        updateFourthScreen();
+      });
+
+      updateFourthScreen();
     }
 
     window.addEventListener("resize", positionRibbon);
