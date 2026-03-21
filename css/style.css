@@ -53,16 +53,16 @@ body {
     display: flex;
     background-image: url('../images/doorBack.png.svg');
     justify-content: center;
-    height: 880px;
+    height: 800px;
 }
 .windows {
     display: flex;
     justify-content: space-between;
-    height: 610px;
+    height: 600px;
 }
 .lights {
-    width: 1240px;
-    height: 1240px;
+    width: 1175px;
+    height: 1315px;
 }
 .twoEl{
   display: flex; 
@@ -512,33 +512,155 @@ h1 {
 }
 .fifth{
     position: relative;
-    min-height: 100vh;
+    height: 105vh;
     overflow: hidden;
     background-image: url('../images/fifth.svg');
     background-size: cover;
     width: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    
 }
+.fifth h1 {
+      font-size: 95px;
+   }
 
 .door {
     display: flex;
     justify-content: center;
-    height: 880px;
+    height: 740px;
 }
 .window2 {
     display: flex;
     justify-content: space-between;
-    height: 610px;
+    height: 560px;
 }
 .nature{
-  display: flex;
   display: flex; 
   flex-direction: row; 
-  justify-content: space-between;
+  justify-content: space-around;
   z-index: 2; 
-  gap: 138px;
+  gap: 100px;
   align-items: flex-start;
+  padding: 0px 20px;
+  height: 84%;
 
+}
+
+
+
+@media screen and (max-width: 1300px){
+  .nature{
+    gap: 50px;
+    justify-content: center;
+  }
+  .door{
+    height: 780px;
+  }
+}
+
+@media screen and (max-width: 1170px){
+  .nature{
+    gap: 50px;
+    
+  }
+  .door{
+    height: 680px;
+  }
+  .window2{
+    margin-top: 0;
+    width: 280px;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 1024px){
+  .window2-right{
+    display: none;
+  }
+  .nature{
+
+    gap: 40px;
+  }
+  .fifth h1{
+    font-size: 70px;
+  }
+}
+@media screen and (max-width: 768px){
+  .window2-left{
+    display: none;
+  }
+  .fifth{
+
+    align-items: center;
+    text-align: center;
+  }
+  .nature{
+    width: 100%;
+    justify-content: center;
+    gap: 0;
+    padding-top: 24px;
+  }
+  .door{
+    height: auto;
+    max-height: none;
+  }
+  .door img,
+  .door{
+    max-width: 100%;
+  }
+  .fifth h1{
+    font-size: 52px;
+    padding: 24px 12px;
+  }
+}
+.sixth{
+    position: relative;
+    height: 125vh;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+}
+.star-layer{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: auto;
+    transform: translate(-50%, -50%);
+    transform-origin: center;
+}
+
+.star-layer-1{
+    width: 140%;
+
+}
+
+.star-layer-2{
+    width: 108%;
+
+}
+
+.star-layer-3{
+    width: 78%;
+
+}
+
+.star-layer-4{
+    width: 52%;
+
+}
+
+.star-layer-5{
+    width: 30%;
+
+}
+
+.star-layer-6{
+    width: 14%;
 
 }
