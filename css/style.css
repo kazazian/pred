@@ -134,8 +134,6 @@ body {
     
 }
 
-
-
 .second {
   position: relative;
   display: flex;
@@ -148,10 +146,12 @@ body {
   width: 100%;
 }
 .phone{
-  position: relative;
-  bottom: 136px ;
-  left: 367px;
+  position: absolute;
+  bottom: 375px ;
+  left: 99px;
   rotate: -7deg;
+  width: 13%;
+  
 }
 
 h1 {
@@ -220,8 +220,6 @@ h1 {
   height: 100%;
 }
 
-
-
 .window {
   width: 200px;
   height: auto;
@@ -244,6 +242,11 @@ h1 {
   h1 {
     font-size: 70px;
   }
+  .phone{
+    top:40px;
+    width: 40%;
+    left: 50px;
+  }
   #ribbon {
     top: auto !important;
     bottom: 45px !important;
@@ -265,7 +268,7 @@ h1 {
     width: 100%;
     margin-top: 0px;
   }
-  #hands img {
+  .h {
     width: 80%;
   }
   #table {
@@ -329,6 +332,7 @@ h1 {
     width: 100%;
     height: 100%;
     margin-left: calc(50% - 50vw);
+    display: flex;
     z-index: 1;
 }
 .stairs{
@@ -340,6 +344,7 @@ h1 {
     max-height: 80vh;
     object-fit: fill;
 
+
 }
 .stairs-ribbon{
     position: absolute;
@@ -349,13 +354,13 @@ h1 {
 }
 .stairs-ribbon-top{
     left: 19%;
-    top: 19%;
+    top: 30%;
     width: 64%;
     transform: rotate(-7deg);
 }
 .stairs-ribbon-middle{
     left: 4%;
-    top: 39%;
+    top: 47%;
     width: 90%;
     transform: rotate(14deg);
 }
@@ -710,8 +715,6 @@ h1 {
   height: 100vh;
   overflow: hidden;
   background-color: black;
-
-  
 }
 .seventh-inner{
   display: flex;
@@ -721,43 +724,43 @@ h1 {
   min-height: 100vh;
   padding: 48px 64px;
 }
-
 .seventh-row{
   display: flex;
   width: 100%;
   justify-content: space-between;
   align-items: flex-start;
 }
-
-
 .seventh-window{
   width: min(20vw, 260px);
   height: auto;
   rotate: 180deg;
-
 }
-
 .seventh-text{
   align-self: center;
   color: #ff10b7;
   font-size: 96px;
   text-align: center;
-  justify-content: space-between;
-  align-items: flex-end;
+  margin-top: -130px;
   padding: 0 120px;
+}
+.seventh-row-bottom{
+  align-items: flex-end;
+  padding: 0 80px;
+  margin-top: -250px;
 }
 
 .seventh-lamp-wrap{
   position: relative;
   display: flex;
   align-items: flex-end;
-  justify-content: space-between;
+  justify-content: center;
+  width: 50%;
 }
 
 .seventh-lamp{
   position: relative;
-  width: 1000px;
-  height: 1000px;
+  width: 900px;
+  height: auto;
   rotate: 180deg;
 }
 
@@ -766,15 +769,21 @@ h1 {
     padding: 40px 28px;
   }
   .seventh-window{
-    width: 220px;
+    display: none;
   }
-  
-}
-
-@media screen and (max-width: 768px){
-  .seventh-text{
-    font-size: 52px;
+  .seventh-row-bottom{
+    justify-content: center;
+    padding: 0;
+    margin-top: -180px;
   }
- 
+  .lamp-right{
+    display: none;
+  }
+  .seventh-lamp-wrap{
+    width: 100%;
+    justify-content: center;
+  }
+  .seventh-lamp{
+    width: 760px;
+  }
 }
-
