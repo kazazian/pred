@@ -33,37 +33,73 @@ body {
     overflow: hidden;
     container-type: size;
     container-name: test;
-    .windows {
-        margin-top: 20px;
-        width: 313px;
-    }
-    .lightsContainer {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        align-items: flex-end;
-        height: 810px;
-        z-index: 1;
-        @container test (max-height: 900px) {
-            .lights{
-                margin-bottom: 24px;
-            }
-        }
-        @container test (min-height: 1500px) {
-            align-items: center;
-        }
-        @container test (min-height: 1800px) {
-            align-items: flex-start;
-        
 }
 
+.first .windows {
+    margin-top: 20px;
+    width: 313px;
+}
+.first .lightsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-end;
+    height: 755px;
+    z-index: 1;
+}
+@container test (max-height: 900px) {
+    .first .lightsContainer .lights {
+        margin-bottom: -30px;
     }
+}
+@container test (min-height: 1500px) {
+    .first .lightsContainer.lights {
+        margin-bottom: -50px;
+    }
+}
+@container test (min-height: 1800px) {
+    .first .lightsContainer {
+       margin-bottom: -90px;
+    }
+}
+.door1{
+  background-size: cover;
+  object-fit: fill;
+  transition: all 1s ease;
+  transform-origin: right center;
+  z-index: 100;
+}
+.door1.active{
+  transform: rotateY(133deg);
 }
 .doors {
     display: flex;
     background-image: url('../images/doorBack.png.svg');
     justify-content: center;
     height: 800px;
+    position: relative;
+}
+.enter{
+  position: absolute;
+
+}
+.Ftext{
+  position: absolute;
+  top: 25%;
+  left: 34%;
+  color: #FF41C6;
+  font-size: 96px;
+  rotate: 19deg;
+
+}
+.Ftext2{
+  top:50%;
+  color: #FF41C6;
+  font-size: 65px;
+  position: absolute;
+  padding-left: 24px;
+  text-align: center;
+
 }
 .windows {
     display: flex;
@@ -82,6 +118,10 @@ body {
   gap: 138px;
   pointer-events: none;
 }
+.doors,
+.door1{
+  pointer-events: auto;
+}
 
 
 @media screen and (max-width: 1300px){
@@ -94,6 +134,7 @@ body {
     .lights {
     width: 1154px;
     }
+    
 }
 @media screen and (max-width: 1170px){
     .twoEl{  
@@ -102,11 +143,21 @@ body {
     .doors {
     height: 680px;
     }
+    
   
     .first .windows {
         margin-top: 0;
         width: 280px;
     }  
+    .Ftext{
+       top: 29%;
+       left: 33%;
+    }
+    .Ftext2{
+      font-size: 50px;
+      padding-left: 51px;
+      padding-top: 35px;
+    }
 }
 @media screen and (max-width: 1024px){
     .light-right {
@@ -150,7 +201,7 @@ body {
   bottom: 375px ;
   left: 99px;
   rotate: -7deg;
-  width: 13%;
+  height: 370px;
   
 }
 
@@ -234,7 +285,16 @@ h1 {
   display: none;
   background: linear-gradient(360deg, #000 20.36%, rgba(0, 0, 0, 0) 84.75%);
 }
-
+@media screen and (min-width: 1500px){
+  .phone{
+    left: 150px;
+  }
+}
+@media screen and (max-width: 1300px){
+  .phone{
+    left: 50px;
+  }
+}
 @media screen and (max-width: 1024px) {
   .second {
     gap: 0;
@@ -243,9 +303,9 @@ h1 {
     font-size: 70px;
   }
   .phone{
-    top:40px;
-    width: 40%;
-    left: 50px;
+    top:0%;
+    width: 23%;
+    left: 29%;
   }
   #ribbon {
     top: auto !important;
@@ -269,10 +329,10 @@ h1 {
     margin-top: 0px;
   }
   .h {
-    width: 80%;
+    height: 700px;
   }
   #table {
-    width: 100%;
+    width: 80%;
     padding-bottom: 280px;
   }
   .table-container {
@@ -285,19 +345,30 @@ h1 {
     left: 50%;
     right: auto;
     bottom: auto;
-    width: 900px;
+    width: 800px;
     height: auto;
     transform: translateX(-50%);
   }
   .table-container .table-top {
-    transform: translateX(-389px);
+    transform: translateX(-345px);
   }
   .vignette {
     display: block;
     width: 100%;
-    background: linear-gradient(360deg, #000 20.36%, rgba(0, 0, 0, 0) 50.75%);
+    background: linear-gradient(360deg, #000 20.36%, rgba(0, 0, 0, 0) 121.75%);
   }
 
+}
+@media screen and (max-width: 700px) {
+  h1{
+    font-size: 50px;
+  }
+  .h {
+    height: 500px;
+  }
+  .phone{
+    width: 29%;
+  }
 }
 
 .third{

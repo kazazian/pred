@@ -12,10 +12,15 @@ document.addEventListener('DOMContentLoaded', () => {
             broken = !broken;
         });
     });
+    let door = document.querySelector('[data-js="door"]')
+    door.addEventListener('click', () => {
+      door.classList.toggle('active')
+    })
 
     const handsElement = document.querySelector('[data-js="hands"]');
     const ribbonElement = document.querySelector('[data-js="ribbon"]');
     const secondSection = document.querySelector('[data-js="second-screen"]');
+    const enterElement = document.querySelector('[data-js="enter"]');
     const fourthSection = document.querySelector('[data-js="fourth-screen"]');
     const switchElement = document.querySelector('[data-js="fourth-switch"]');
     const fireElement = document.querySelector('[data-js="fourth-fire"]');
@@ -43,6 +48,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
       ribbonElement.style.top = `${ribbonTop}px`;
       ribbonElement.style.bottom = "auto";
+    }
+
+    if (enterElement && secondSection) {
+      enterElement.addEventListener("click", () => {
+        const startY = window.scrollY;
+        const offset = 20;
+        const targetY = secondSection.getBoundingClientRect().top  + offset;
+        const duration = 2200;
+        const startTime = performance.now();
+        function easeInOutCubic(t) {
+          return t < 0.5
+            ? 4 * t * t * t
+            : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        }
+
+        function animateScroll(now) {
+          const elapsed = now - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const easedProgress = easeInOutCubic(progress);
+
+          window.scrollTo(0, startY + targetY * easedProgress);
+
+          if (progress < 1) {
+            requestAnimationFrame(animateScroll);
+          }
+        }
+
+        requestAnimationFrame(animateScroll);
+      });
     }
 
     if (containerOfWindows) {
