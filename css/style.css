@@ -141,7 +141,7 @@ body {
       gap: 50px;
     }
     .doors {
-    height: 680px;
+    height: 580px;
     }
     
   
@@ -178,8 +178,16 @@ body {
     margin-right: 0px !important;
     }
     .lights {
-    height: 1354px;
-    width: 1300px;
+    height: 954px;
+    width: 900px;
+    }
+    .first .lightsContainer {
+   
+    height: 585px;
+
+    }
+    .doors {
+    height: 480px;
     }
 
     
