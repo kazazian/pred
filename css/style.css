@@ -136,6 +136,7 @@ body {
   overflow: hidden;
   background-color: #000;
   width: 100%;
+  padding-bottom: 40px;
 }
 .phone{
   position: absolute;
@@ -167,7 +168,7 @@ h1 {
   position: absolute;
   left: 50%;
   z-index: 100;
-  transform: translateX(-50%) rotate(-9deg);
+  transform: translateX(-50%) rotate(-7deg);
 }
 
 .hands-and-table {
@@ -317,7 +318,7 @@ h1 {
 }
 .stairs-ribbon-bottom{
     left: -47%;
-    top: 56%;
+    top: 48%;
     width: 200%;
     transform: rotate(-6deg);
 }
@@ -500,7 +501,7 @@ h1 {
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  background-color: black;
+  background-color: #010A16;
 }
 .seventh-inner{
   display: flex;

@@ -15,6 +15,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let door = document.querySelector('[data-js="door"]')
     door.addEventListener('click', () => {
       door.classList.toggle('active')
+      const sound2=new Audio("opening.mp3");
+      sound2.play();
     })
 
     const handsElement = document.querySelector('[data-js="hands"]');
@@ -36,10 +38,6 @@ document.addEventListener('DOMContentLoaded', () => {
     );
 
     function smoothScrollToSection(sectionElement, duration, offset = 0) {
-      if (!sectionElement) {
-        return;
-      }
-
       const startY = window.scrollY;
       const targetY = sectionElement.getBoundingClientRect().top + startY + offset;
       const distance = targetY - startY;
@@ -58,29 +56,19 @@ document.addEventListener('DOMContentLoaded', () => {
       requestAnimationFrame(animateScroll);
     }
 
-    if (doorLottieElement) {
-      doorLottieElement.style.cursor = "pointer";
-      doorLottieElement.addEventListener("click", () => {
-        const doorSrc = doorLottieElement.getAttribute("src");
-        if (doorSrc && typeof doorLottieElement.load === "function") {
-          doorLottieElement.load(doorSrc);
-        } else if (typeof doorLottieElement.stop === "function") {
-          doorLottieElement.stop();
-        }
-        if (typeof doorLottieElement.play === "function") {
-          doorLottieElement.play();
-        }
-        window.setTimeout(() => {
-          smoothScrollToSection(seventhSection, 3200, -30);
-        }, 120);
-      });
-    }
+    doorLottieElement.style.cursor = "pointer";
+    doorLottieElement.addEventListener("click", () => {
+      const doorSrc = doorLottieElement.getAttribute("src") || "door.json";
+      doorLottieElement.load(doorSrc);
+      doorLottieElement.play();
+      window.setTimeout(() => {
+        smoothScrollToSection(seventhSection, 3200, -30);
+      }, 620);
+      const sound3=new Audio("sound3.mp3");
+      sound3.play();
+    });
 
     function positionRibbon() {
-      if (!handsElement || !ribbonElement || !secondSection) {
-        return;
-      }
-
       if (window.innerWidth < 1024) {
         ribbonElement.style.top = "";
         ribbonElement.style.bottom = "";
@@ -96,14 +84,9 @@ document.addEventListener('DOMContentLoaded', () => {
       ribbonElement.style.bottom = "auto";
     }
 
-    if (enterElement && secondSection) {
-      enterElement.addEventListener("click", () => {
-        smoothScrollToSection(secondSection, 2200, 20);
-      });
-    }
-if (!handsElement || !tableTopElement || !tableContainer) {
-  return;
-}
+    enterElement.addEventListener("click", () => {
+      smoothScrollToSection(secondSection, 2200, 20);
+    });
 
 const tablePositions = {
   desktop: {
@@ -126,12 +109,8 @@ let itemWidth = 0;
 let itemHeight = 0;
 let wasOnTable = false;
 
-function isDesktop() {
-  return window.innerWidth > 1024;
-}
-
 function getScreenMode() {
-  if (isDesktop()) {
+  if (window.innerWidth > 1024) {
     return "desktop";
   }
 
@@ -281,6 +260,8 @@ window.addEventListener("pointercancel", endDrag);
 
     if (fourthSection && switchElement && fireElement) {
       const fireFrames = ["images/fire1.svg", "images/fire2.svg"];
+      const sound4 = new Audio("fireSound.mp3");
+      sound4.loop = true;
       let fireFrameIndex = 0;
       let fireIntervalId = null;
       let switchIsOn = false;
@@ -311,9 +292,13 @@ window.addEventListener("pointercancel", endDrag);
         if (switchIsOn) {
           fourthSection.classList.add("fire-active");
           startFireAnimation();
+          sound4.currentTime = 0;
+          sound4.play().catch(() => {});
         } else {
           fourthSection.classList.remove("fire-active");
           stopFireAnimation();
+          sound4.pause();
+          sound4.currentTime = 0;
           fireFrameIndex = 0;
           fireElement.src = fireFrames[fireFrameIndex];
         }
