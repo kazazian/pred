@@ -613,7 +613,7 @@ h1 {
     height: auto;
   }
 }
-@media screen and (max-width: 1170px)and(min-width: 1024px){
+@media screen and (max-width: 1170px) and (min-width: 1024px) {
   .lights{
     margin-right: -700px;
   }
