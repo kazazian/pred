@@ -145,6 +145,13 @@ body {
   height: 370px;
   
 }
+.tourch{
+  position: absolute;
+  bottom: 375px;
+  left: 305px;
+  rotate: 27deg;
+  height: 690px;
+}
 
 h1 {
   z-index: 10000;
@@ -228,7 +235,7 @@ h1 {
 }
 
 .third{
-    height: 110vh;
+    height: 100vh;
     overflow: clip;
     background-image: url('../images/third.svg');
     background-size: cover;
@@ -293,7 +300,7 @@ h1 {
 }
 .stairs-ribbon-bottom{
     left: -47%;
-    top: 45%;
+    top: 56%;
     width: 200%;
     transform: rotate(-6deg);
 }
@@ -372,7 +379,7 @@ h1 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 100px;
+    gap: 30px;
     
 }
 .fifth h1 {
@@ -382,12 +389,12 @@ h1 {
 .door {
     display: flex;
     justify-content: center;
-    height: 740px;
+    height: 700px;
 }
 .window2 {
     display: flex;
     justify-content: space-between;
-    height: 560px;
+    height: 550px;
 }
 .nature{
   display: flex; 
@@ -539,6 +546,9 @@ h1 {
   .phone{
     left: 50px;
   }
+  .tourch{
+    left: 245px;
+  }
   .nature{
     gap: 50px;
     justify-content: center;
@@ -604,6 +614,11 @@ h1 {
     width: 23%;
     left: 29%;
   }
+  .tourch{
+    top: -50%;
+    width: 34%;
+    left: 51%;
+  }
   #ribbon {
     top: auto !important;
     bottom: 45px !important;
@@ -620,7 +635,7 @@ h1 {
   }
   #hands {
     align-items: flex-start;
-    height: 500px;
+    height: 410px;
     transform: rotate(180deg) scaleX(-1);
     width: 100%;
     margin-top: 0px;
@@ -703,27 +718,7 @@ h1 {
   .fifth h1{
     font-size: 70px;
   }
-  .seventh-inner{
-    padding: 40px 28px;
-  }
-  .seventh-window{
-    display: none;
-  }
-  .seventh-row-bottom{
-    justify-content: center;
-    padding: 0;
-    margin-top: -180px;
-  }
-  .lamp-right{
-    display: none;
-  }
-  .seventh-lamp-wrap{
-    width: 100%;
-    justify-content: center;
-  }
-  .seventh-lamp{
-    width: 760px;
-  }
+  
 }
 
 @media screen and (max-width: 768px){
@@ -780,7 +775,7 @@ h1 {
   }
   .switch{
     order: 2;
-    width: min(92vw, 420px);
+    width: min(92vw, 370px);
     transform: translateX(-12px);
   }
   .fourth-text{
@@ -810,6 +805,7 @@ h1 {
   .fifth{
     align-items: center;
     text-align: center;
+    gap: 10px;
   }
   .nature{
     width: 100%;
@@ -823,11 +819,35 @@ h1 {
   }
   .door img,
   .door{
-    max-width: 100%;
+    max-width: 93%;
   }
   .fifth h1{
     font-size: 52px;
     padding: 24px 12px;
+  }
+  .seventh-inner{
+    padding: 40px 28px;
+  }
+  .seventh-window{
+    display: none;
+  }
+  .seventh-row-bottom{
+    justify-content: center;
+    padding: 0;
+    margin-top: -180px;
+  }
+  .lamp-right{
+    display: none;
+  }
+  .seventh-lamp-wrap{
+    width: 100%;
+    justify-content: center;
+  }
+  .seventh-lamp{
+    width: 760px;
+  }
+  .seventh-text {
+    margin-top: 50px;
   }
 }
 
@@ -843,6 +863,10 @@ h1 {
   .phone{
     width: 29%;
   }
+  .tourch{
+    width: 43%;
+    left: 44%;
+  }
    #ribbon {
 
     bottom: 21px !important;
@@ -854,11 +878,18 @@ h1 {
     width: 40%;
     left: 50px;
   }
+  .tourch{
+    width: 59%;
+    left: 168px;
+  }
 }
 
 @media screen and (min-width: 1500px){
   .phone{
     left: 150px;
+  }
+  .tourch{
+    left: 324px;
   }
 }
 
