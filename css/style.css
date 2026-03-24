@@ -36,19 +36,18 @@ body {
 }
 
 .first .windows {
-    position: relative;
     margin-top: 20px;
     width: 313px;
     z-index: 1;
 }
 .first .lightsContainer {
-    position: relative;
+
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: flex-end;
     height: 755px;
-    z-index: 2;
+    z-index: 3;
 }
 @container test (max-height: 900px) {
     .first .lightsContainer .lights {
@@ -81,7 +80,7 @@ body {
     justify-content: center;
     height: 800px;
     position: relative;
-    z-index: 3;
+    z-index: 1000;
 }
 .enter{
   position: absolute;
@@ -607,7 +606,6 @@ h1 {
   .door{
     height: 680px;
   }
-  
   .window2{
     margin-top: 0;
     width: 280px;
@@ -619,6 +617,9 @@ h1 {
   .light-right {
     display: none;
   }
+  /* .lights{
+    margin-right: -560px;
+  } */
   .light-left {
     margin-right: 180px !important;
   }
