@@ -892,7 +892,7 @@ h1 {
 }
 @media screen and (max-width: 500px){
    .phone{
-    min-width: 45%;
+    min-width: 37%;
     left: 60px;
   }
   .tourch{

@@ -94,6 +94,10 @@ const tablePositions = {
     phone: { x: 0.54, y: 0.35 },
     torch: { x: 0.88, y: 0.35 },
   },
+  mobileSmall: {
+    phone: { x: 0.54, y: 0.67 },
+    torch: { x: 0.98, y: 0.62 },
+  },
 };
 
 let activeItem = null;
@@ -104,6 +108,18 @@ let wasOnTable = false;
 
 function isDesktop() {
   return window.innerWidth > 1024;
+}
+
+function getScreenMode() {
+  if (isDesktop()) {
+    return "desktop";
+  }
+
+  if (window.innerWidth < 500) {
+    return "mobileSmall";
+  }
+
+  return "mobile";
 }
 
 function getItemType(item) {
@@ -122,7 +138,7 @@ function returnItemToHands(item) {
 
 function putItemOnTable(item) {
   const tableRect = tableContainer.getBoundingClientRect();
-  const mode = isDesktop() ? "desktop" : "mobile";
+  const mode = getScreenMode();
   const type = getItemType(item);
   const position = tablePositions[mode][type];
 
