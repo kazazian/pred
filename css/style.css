@@ -218,6 +218,22 @@ h1 {
   width: 100%;
   height: 100%;
 }
+.table-container .table-top {
+  z-index: 3;
+  pointer-events: none;
+}
+
+[data-js="drag-item"]{
+  touch-action: none;
+  user-select: none;
+  cursor: grab;
+}
+[data-js="drag-item"].dragging{
+  cursor: grabbing;
+}
+[data-js="drag-item"].on-table{
+  z-index: 2;
+}
 
 .window {
   width: 200px;
@@ -229,6 +245,7 @@ h1 {
   position: absolute;
   inset: 0;
   z-index: 10;
+  pointer-events: none;
   height: 150%;
   display: none;
   background: linear-gradient(360deg, #000 20.36%, rgba(0, 0, 0, 0) 84.75%);
@@ -875,12 +892,12 @@ h1 {
 }
 @media screen and (max-width: 500px){
    .phone{
-    width: 40%;
-    left: 50px;
+    min-width: 45%;
+    left: 60px;
   }
   .tourch{
-    width: 59%;
-    left: 168px;
+    min-width: 66%;
+    left: 175px;
   }
 }
 

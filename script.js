@@ -20,6 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const handsElement = document.querySelector('[data-js="hands"]');
     const ribbonElement = document.querySelector('[data-js="ribbon"]');
     const secondSection = document.querySelector('[data-js="second-screen"]');
+    const dragItems = document.querySelectorAll('[data-js="drag-item"]');
+    const tableTopElement = document.querySelector('[data-js="table-top"]');
+    const tableContainer = document.querySelector('.table-container');
     const enterElement = document.querySelector('[data-js="enter"]');
     const fourthSection = document.querySelector('[data-js="fourth-screen"]');
     const switchElement = document.querySelector('[data-js="fourth-switch"]');
@@ -78,6 +81,143 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(animateScroll);
       });
     }
+if (!handsElement || !tableTopElement || !tableContainer) {
+  return;
+}
+
+const tablePositions = {
+  desktop: {
+    phone: { x: 0.34, y: 0.48 },
+    torch: { x: 0.5, y: 0.2 },
+  },
+  mobile: {
+    phone: { x: 0.54, y: 0.35 },
+    torch: { x: 0.88, y: 0.35 },
+  },
+};
+
+let activeItem = null;
+let activePointerId = null;
+let itemWidth = 0;
+let itemHeight = 0;
+let wasOnTable = false;
+
+function isDesktop() {
+  return window.innerWidth > 1024;
+}
+
+function getItemType(item) {
+  return item.classList.contains("tourch") ? "torch" : "phone";
+}
+
+function isPointInside(x, y, rect) {
+  return x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom;
+}
+
+function returnItemToHands(item) {
+  handsElement.appendChild(item);
+  item.classList.remove("on-table");
+  item.removeAttribute("style");
+}
+
+function putItemOnTable(item) {
+  const tableRect = tableContainer.getBoundingClientRect();
+  const mode = isDesktop() ? "desktop" : "mobile";
+  const type = getItemType(item);
+  const position = tablePositions[mode][type];
+
+  const left = position.x * tableRect.width - itemWidth / 2;
+  const top = position.y * tableRect.height - itemHeight / 2;
+
+  tableContainer.appendChild(item);
+  item.classList.add("on-table");
+  item.style.position = "absolute";
+  item.style.left = `${left}px`;
+  item.style.top = `${top}px`;
+  item.style.width = `${itemWidth}px`;
+  item.style.height = `${itemHeight}px`;
+  item.style.margin = "0";
+  item.style.zIndex = "2";
+}
+
+function startDrag(item, event) {
+  const styles = window.getComputedStyle(item);
+
+  activeItem = item;
+  activePointerId = event.pointerId;
+  wasOnTable = item.classList.contains("on-table");
+  itemWidth = parseFloat(styles.width);
+  itemHeight = parseFloat(styles.height);
+
+  item.classList.add("dragging");
+  item.setPointerCapture(activePointerId);
+
+  item.style.position = "fixed";
+  item.style.left = `${event.clientX - itemWidth / 2}px`;
+  item.style.top = `${event.clientY - itemHeight / 2}px`;
+  item.style.width = `${itemWidth}px`;
+  item.style.height = `${itemHeight}px`;
+  item.style.margin = "0";
+  item.style.zIndex = "9999";
+
+  document.body.appendChild(item);
+}
+
+function moveDrag(event) {
+  if (!activeItem || event.pointerId !== activePointerId) {
+    return;
+  }
+
+  event.preventDefault();
+
+  activeItem.style.left = `${event.clientX - itemWidth / 2}px`;
+  activeItem.style.top = `${event.clientY - itemHeight / 2}px`;
+}
+
+function endDrag(event) {
+  if (!activeItem || event.pointerId !== activePointerId) {
+    return;
+  }
+
+  const item = activeItem;
+  const overTable = isPointInside(
+    event.clientX,
+    event.clientY,
+    tableTopElement.getBoundingClientRect(),
+  );
+  const overHands = isPointInside(
+    event.clientX,
+    event.clientY,
+    handsElement.getBoundingClientRect(),
+  );
+
+  item.classList.remove("dragging");
+  item.releasePointerCapture(activePointerId);
+
+  activeItem = null;
+  activePointerId = null;
+
+  if (overTable || (wasOnTable && !overHands)) {
+    putItemOnTable(item);
+  } else {
+    returnItemToHands(item);
+  }
+}
+
+dragItems.forEach((item) => {
+  item.addEventListener("pointerdown", (event) => {
+    if (activeItem) {
+      return;
+    }
+
+    event.preventDefault();
+    startDrag(item, event);
+  });
+});
+
+window.addEventListener("pointermove", moveDrag);
+window.addEventListener("pointerup", endDrag);
+window.addEventListener("pointercancel", endDrag);
 
     if (containerOfWindows) {
       const WINDOW_SIZE = 200;
