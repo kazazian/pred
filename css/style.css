@@ -614,14 +614,11 @@ h1 {
   }
 }
 @media screen and (max-width: 1170px) and (min-width: 1024px) {
-<<<<<<< HEAD
   .lights{
     width: 1050px;
-=======
-  .light-left{
-    margin-right: -700px !important;
->>>>>>> ddb653176496fec5502be9532222dcebc90d5755
   }
+
+ 
 }
 @media screen and (max-width: 1024px){
   .light-right {
