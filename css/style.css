@@ -36,16 +36,19 @@ body {
 }
 
 .first .windows {
+    position: relative;
     margin-top: 20px;
     width: 313px;
+    z-index: 1;
 }
 .first .lightsContainer {
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: flex-end;
     height: 755px;
-    z-index: 1;
+    z-index: 2;
 }
 @container test (max-height: 900px) {
     .first .lightsContainer .lights {
@@ -78,6 +81,7 @@ body {
     justify-content: center;
     height: 800px;
     position: relative;
+    z-index: 3;
 }
 .enter{
   position: absolute;
@@ -362,7 +366,7 @@ h1 {
 .fourth-extra{
     display: none;
     position: absolute;
-    top: calc(100% - 360px);
+    top: calc(100% - 270px);
     left: 495px;
     padding-bottom: 0;
 }
