@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         window.setTimeout(() => {
           smoothScrollToSection(seventhSection, 3200, -30);
-        }, 450);
+        }, 120);
       });
     }
 
