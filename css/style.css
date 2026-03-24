@@ -51,7 +51,7 @@ body {
 }
 @container test (max-height: 900px) {
     .first .lightsContainer .lights {
-        margin-bottom: -30px;
+        margin-bottom: -10px;
     }
 }
 @container test (min-height: 1500px) {
@@ -556,7 +556,7 @@ h1 {
 
 @media screen and (max-width: 1300px){
   .twoEl{
-    gap: 50px;
+    gap: 100px;
   }
   .doors {
     height: 780px;
@@ -589,6 +589,7 @@ h1 {
   .first .windows {
     margin-top: 0;
     width: 280px;
+    height: 516px;
   }
   .Ftext{
     top: 26%;
@@ -612,7 +613,11 @@ h1 {
     height: auto;
   }
 }
-
+@media screen and (max-width: 1170px)and(min-width: 1024px){
+  .lights{
+    margin-right: -700px;
+  }
+}
 @media screen and (max-width: 1024px){
   .light-right {
     display: none;
