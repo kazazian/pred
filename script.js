@@ -24,6 +24,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const tableTopElement = document.querySelector('[data-js="table-top"]');
     const tableContainer = document.querySelector('.table-container');
     const enterElement = document.querySelector('[data-js="enter"]');
+    const doorLottieElement = document.querySelector('[data-js="door-lottie"]');
+    const seventhSection = document.querySelector('[data-js="seventh-screen"]');
     const fourthSection = document.querySelector('[data-js="fourth-screen"]');
     const switchElement = document.querySelector('[data-js="fourth-switch"]');
     const fireElement = document.querySelector('[data-js="fourth-fire"]');
@@ -32,6 +34,44 @@ document.addEventListener('DOMContentLoaded', () => {
     const containerOfWindows = document.querySelector(
       "[data-js='second-screen-windows-container']",
     );
+
+    function smoothScrollToSection(sectionElement, duration, offset = 0) {
+      if (!sectionElement) {
+        return;
+      }
+
+      const startY = window.scrollY;
+      const targetY = sectionElement.getBoundingClientRect().top + startY + offset;
+      const distance = targetY - startY;
+      const startTime = performance.now();
+
+      function animateScroll(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        window.scrollTo(0, startY + distance * progress);
+
+        if (progress < 1) {
+          requestAnimationFrame(animateScroll);
+        }
+      }
+
+      requestAnimationFrame(animateScroll);
+    }
+
+    if (doorLottieElement) {
+      doorLottieElement.style.cursor = "pointer";
+      doorLottieElement.addEventListener("click", () => {
+        if (typeof doorLottieElement.seek === "function") {
+          doorLottieElement.seek("0%");
+        } else if (typeof doorLottieElement.stop === "function") {
+          doorLottieElement.stop();
+        }
+        if (typeof doorLottieElement.play === "function") {
+          doorLottieElement.play();
+        }
+        smoothScrollToSection(seventhSection, 3200, -30);
+      });
+    }
 
     function positionRibbon() {
       if (!handsElement || !ribbonElement || !secondSection) {
@@ -55,30 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (enterElement && secondSection) {
       enterElement.addEventListener("click", () => {
-        const startY = window.scrollY;
-        const offset = 20;
-        const targetY = secondSection.getBoundingClientRect().top  + offset;
-        const duration = 2200;
-        const startTime = performance.now();
-        function easeInOutCubic(t) {
-          return t < 0.5
-            ? 4 * t * t * t
-            : 1 - Math.pow(-2 * t + 2, 3) / 2;
-        }
-
-        function animateScroll(now) {
-          const elapsed = now - startTime;
-          const progress = Math.min(elapsed / duration, 1);
-          const easedProgress = easeInOutCubic(progress);
-
-          window.scrollTo(0, startY + targetY * easedProgress);
-
-          if (progress < 1) {
-            requestAnimationFrame(animateScroll);
-          }
-        }
-
-        requestAnimationFrame(animateScroll);
+        smoothScrollToSection(secondSection, 2200, 20);
       });
     }
 if (!handsElement || !tableTopElement || !tableContainer) {
