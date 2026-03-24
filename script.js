@@ -61,15 +61,18 @@ document.addEventListener('DOMContentLoaded', () => {
     if (doorLottieElement) {
       doorLottieElement.style.cursor = "pointer";
       doorLottieElement.addEventListener("click", () => {
-        if (typeof doorLottieElement.seek === "function") {
-          doorLottieElement.seek("0%");
+        const doorSrc = doorLottieElement.getAttribute("src");
+        if (doorSrc && typeof doorLottieElement.load === "function") {
+          doorLottieElement.load(doorSrc);
         } else if (typeof doorLottieElement.stop === "function") {
           doorLottieElement.stop();
         }
         if (typeof doorLottieElement.play === "function") {
           doorLottieElement.play();
         }
-        smoothScrollToSection(seventhSection, 3200, -30);
+        window.setTimeout(() => {
+          smoothScrollToSection(seventhSection, 3200, -30);
+        }, 450);
       });
     }
 
