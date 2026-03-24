@@ -51,10 +51,10 @@ body {
 }
 @container test (max-height: 900px) {
     .first .lightsContainer .lights {
-        margin-bottom: -10px;
+        margin-bottom: -7px;
     }
 }
-@container test (min-height: 1500px) {
+@container test (min-height: 1400px) {
     .first .lightsContainer.lights {
         margin-bottom: -50px;
     }
@@ -616,6 +616,7 @@ h1 {
 @media screen and (max-width: 1170px) and (min-width: 1024px) {
   .lights{
     width: 1050px;
+    margin-bottom: -5px;
   }
 
  
@@ -628,7 +629,7 @@ h1 {
     margin-right: -560px;
   } */
   .light-left {
-    margin-right: 180px !important;
+    margin-right: 148px !important;
   }
   .window-right {
     display: none;
