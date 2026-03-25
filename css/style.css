@@ -985,7 +985,7 @@ h1 {
     display: none;
   }
   .light-left {
-    margin-right: 0px !important;
+    margin-right: -25px !important;
   }
   .lights {
     height: 954px;
