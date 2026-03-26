@@ -31,8 +31,6 @@ body {
     min-height: 100vh;
     height: auto;
     overflow: hidden;
-    container-type: size;
-    container-name: test;
 }
 
 .first .windows {
@@ -40,36 +38,42 @@ body {
     width: 313px;
     z-index: 1;
 }
-.first .lightsContainer {
 
+
+.first .lightsContainer {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: flex-end;
     height: 755px;
     z-index: 3;
+    
 }
-@container test (max-height: 900px) {
-    .first .lightsContainer .lights {
-        margin-bottom: -7px;
-    }
+
+@media screen and (max-height: 900px) {
+  .first .lights {
+    margin-bottom: -7px;
+  }
 }
-@container test (min-height: 1400px) {
-    .first .lightsContainer.lights {
-        margin-bottom: -50px;
-    }
+@media screen and (min-height: 1024px) {
+  .first .lights {
+    margin-bottom: -100px;
+  }
 }
-@container test (min-height: 1800px) {
-    .first .lightsContainer {
-       margin-bottom: -90px;
-    }
+
+@media screen and (min-height: 1400px) {
+  .first .lights {
+    margin-bottom: -200px;
+  }
 }
+
 .door1{
   background-size: cover;
   object-fit: fill;
   transition: all 1s ease;
   transform-origin: right center;
   z-index: 100;
+  cursor: pointer;
 }
 .door1.active{
   transform: rotateY(133deg);
@@ -94,6 +98,7 @@ body {
   color: #FF41C6;
   font-size: 96px;
   rotate: 19deg;
+  cursor: pointer;
 
 }
 .Ftext2{
@@ -113,7 +118,10 @@ body {
 .lights {
     width: 1175px;
     height: 1230px;
+    
 }
+
+
 .twoEl{
   display: flex; 
   flex-direction: row; 
@@ -312,18 +320,21 @@ h1 {
     top: 30%;
     width: 64%;
     transform: rotate(-7deg);
+    cursor: pointer;
 }
 .stairs-ribbon-middle{
     left: 4%;
     top: 47%;
     width: 90%;
     transform: rotate(14deg);
+    cursor: pointer;
 }
 .stairs-ribbon-bottom{
     left: -47%;
     top: 48%;
     width: 200%;
     transform: rotate(-6deg);
+    cursor: pointer;
 }
 
 .fourth{
