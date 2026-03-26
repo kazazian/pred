@@ -38,7 +38,6 @@ body {
     z-index: 1;
 }
 
-
 .first .lightsContainer {
     display: flex;
     flex-direction: row;
@@ -48,7 +47,6 @@ body {
     z-index: 3;
     
 }
-
 @media screen and (max-height: 900px) {
   .first .lights {
     margin-bottom: -7px;
@@ -59,7 +57,6 @@ body {
     margin-bottom: -100px;
   }
 }
-
 @media screen and (min-height: 1400px) {
   .first .lights {
     margin-bottom: -200px;
@@ -104,7 +101,6 @@ body {
   font-size: 96px;
   rotate: 19deg;
   cursor: pointer;
-
 }
 .Ftext2{
   top:50%;
@@ -122,10 +118,8 @@ body {
 }
 .lights {
     width: 1175px;
-    height: 1230px;
-    
+    height: 1230px; 
 }
-
 .twoEl{
   display: flex; 
   flex-direction: row; 
@@ -138,9 +132,6 @@ body {
 .door1{
   pointer-events: auto;
 }
-
-
-
 .second {
   position: relative;
   display: flex;
@@ -159,7 +150,6 @@ body {
   left: 99px;
   rotate: -7deg;
   height: 370px;
-  
 }
 .tourch{
   position: absolute;
@@ -168,7 +158,6 @@ body {
   rotate: 27deg;
   height: 690px;
 }
-
 h1 {
   z-index: 10000;
   margin: 0;
@@ -178,14 +167,12 @@ h1 {
   line-height: 0.95;
   text-align: center;
 }
-
 #ribbon {
   position: absolute;
   left: 50%;
   z-index: 100;
   transform: translateX(-50%) rotate(-7deg);
 }
-
 .hands-and-table {
   position: relative;
   display: flex;
@@ -195,7 +182,6 @@ h1 {
   width: 100%;
   max-width: 1920px;
 }
-
 .windows-container {
   position: absolute;
   top: 0%;
@@ -206,7 +192,6 @@ h1 {
   gap: 40px;
   flex-wrap: nowrap;
 }
-
 #hands {
   z-index: 10;
   display: flex;
@@ -215,19 +200,16 @@ h1 {
   margin-top: 40px;
   width: 40%;
 }
-
 #table {
   z-index: 10;
   padding-bottom: 195px;
   width: 55%;
 }
-
 .table-container {
   position: relative;
   width: 1027px;
   height: 679px;
 }
-
 .table-container img {
   position: absolute;
   inset: 0;
@@ -238,7 +220,6 @@ h1 {
   z-index: 3;
   pointer-events: none;
 }
-
 [data-js="drag-item"]{
   touch-action: none;
   user-select: none;
@@ -250,13 +231,11 @@ h1 {
 [data-js="drag-item"].on-table{
   z-index: 2;
 }
-
 .window {
   width: 200px;
   height: auto;
   object-fit: cover;
 }
-
 .vignette {
   position: absolute;
   inset: 0;
@@ -266,7 +245,6 @@ h1 {
   display: none;
   background: linear-gradient(360deg, #000 20.36%, rgba(0, 0, 0, 0) 84.75%);
 }
-
 .third{
     height: 100vh;
     overflow: clip;
@@ -310,8 +288,6 @@ h1 {
     height: 100%;
     max-height: 80vh;
     object-fit: fill;
-
-
 }
 .stairs-ribbon{
     position: absolute;
@@ -352,7 +328,6 @@ h1 {
     justify-content: center;
     padding: 48px 64px;
 }
-
 .fourth-content{
     position: relative;
     display: flex;
@@ -361,7 +336,6 @@ h1 {
     width: 100%;
     gap: 50px;
 }
-
 .switch{
     order: 1;
     width: 445px;
@@ -384,11 +358,9 @@ h1 {
     left: 495px;
     padding-bottom: 0;
 }
-
 .fourth.show-extra .fourth-extra{
     display: block;
 }
-
 .fire{
   position: absolute;
   left: 0;
@@ -404,7 +376,6 @@ h1 {
 .fourth.fire-active .fire{
   opacity: 1;
 }
-
 .fifth{
     position: relative;
     height: fit-content;
@@ -416,7 +387,6 @@ h1 {
     flex-direction: column;
     justify-content: space-between;
     gap: 30px;
-    
 }
 .fifth h1 {
       font-size: 95px;
@@ -441,11 +411,7 @@ h1 {
   align-items: flex-start;
   padding: 0px 20px;
   height: 84%;
-
 }
-
-
-
 .sixth{
     position: relative;
     height: 125vh;
@@ -488,31 +454,24 @@ h1 {
     will-change: transform;
     cursor: pointer;
 }
-
 .star-layer-1{
     width: 200%;
 }
-
 .star-layer-2{
     width: 108%;
 }
-
 .star-layer-3{
     width: 78%;
 }
-
 .star-layer-4{
     width: 52%;
 }
-
 .star-layer-5{
     width: 30%;
 }
-
 .star-layer-6{
     width: 14%;
 }
-
 .seventh{
   display: flex;
   justify-content: center;
@@ -553,7 +512,6 @@ h1 {
   padding: 0 80px;
   margin-top: -300px;
 }
-
 .seventh-lamp-wrap{
   position: relative;
   display: flex;
@@ -561,7 +519,6 @@ h1 {
   justify-content: center;
   width: 50%;
 }
-
 .seventh-lamp{
   position: relative;
   width: 900px;
@@ -594,7 +551,6 @@ h1 {
     height: 780px;
   }
 }
-
 @media screen and (max-width: 1170px){
   .twoEl{
     gap: 50px;
@@ -640,7 +596,6 @@ h1 {
   .light-right {
     display: none;
   }
-  
   .light-left {
     margin-right: 97px !important;
   }
@@ -762,9 +717,7 @@ h1 {
   .fifth h1{
     font-size: 70px;
   }
-  
 }
-
 @media screen and (max-width: 768px){
   .window-left {
     display: none;
@@ -793,9 +746,7 @@ h1 {
     padding-top: 10px;
   }
    .table-container img {
- 
     width: 640px;
-
   }
   .table-container .table-top {
     transform: translateX(-266px);
@@ -895,7 +846,6 @@ h1 {
     margin-top: 50px;
   }
 }
-
 @media screen and (max-width: 700px){
   h1{
     font-size: 50px;
@@ -928,7 +878,6 @@ h1 {
     left: 175px;
   }
 }
-
 @media screen and (min-width: 1500px){
   .phone{
     left: 150px;
@@ -937,7 +886,6 @@ h1 {
     left: 324px;
   }
 }
-
 @media (min-width: 1512px){
   .third-dark{
     top: -300px;
