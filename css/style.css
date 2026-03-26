@@ -588,7 +588,7 @@ h1 {
 }
 @media screen and (max-width: 1170px) and (min-width: 1024px) {
   .first .lights{
-    width: 1050px;
+    width: 1016px;
     margin-bottom: 37px !important;
   }
 }
