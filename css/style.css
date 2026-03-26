@@ -32,7 +32,6 @@ body {
     height: auto;
     overflow: hidden;
 }
-
 .first .windows {
     margin-top: 20px;
     width: 313px;
@@ -83,7 +82,7 @@ body {
     background-image: url('../images/doorBack.png.svg');
     justify-content: center;
     height: 800px;
-    width: 440px;
+    width: 444px;
     max-width: 100%;
     
 
@@ -602,7 +601,7 @@ h1 {
   }
   .doors {
     height: 580px;
-    width: 318px;
+    width: 321px;
   }
   .first .windows {
     margin-top: 0;
@@ -632,12 +631,10 @@ h1 {
   }
 }
 @media screen and (max-width: 1170px) and (min-width: 1024px) {
-  .lights{
+  .first .lights{
     width: 1050px;
-    margin-bottom: -5px;
+    margin-bottom: 37px !important;
   }
-
- 
 }
 @media screen and (max-width: 1024px){
   .light-right {
@@ -784,7 +781,7 @@ h1 {
   }
   .doors {
     height: 480px;
-    width: 255px;
+    width: 265px;
   }
   .Ftext{
  

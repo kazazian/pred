@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const options = ['images/LightOff.png', 'images/LightOn.png'];
             light.src = broken ? options[1] : options[0];
             if (!broken) {
-                const sound = new Audio("glass.mp3");
+                const sound = new Audio("images/glass.mp3");
                 sound.play();
             }
             broken = !broken;
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let door = document.querySelector('[data-js="door"]')
     door.addEventListener('click', () => {
       door.classList.toggle('active')
-      const sound2=new Audio("opening.mp3");
+      const sound2=new Audio("images/opening.mp3");
       sound2.play();
     })
 
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
       window.setTimeout(() => {
         smoothScrollToSection(seventhSection, 3200, -30);
       }, 620);
-      const sound3=new Audio("sound3.mp3");
+      const sound3=new Audio("images/sound3.mp3");
       sound3.play();
     });
 
@@ -260,7 +260,7 @@ window.addEventListener("pointercancel", endDrag);
 
     if (fourthSection && switchElement && fireElement) {
       const fireFrames = ["images/fire1.svg", "images/fire2.svg"];
-      const sound4 = new Audio("fireSound.mp3");
+      const sound4 = new Audio("images/fireSound.mp3");
       sound4.loop = true;
       let fireFrameIndex = 0;
       let fireIntervalId = null;
