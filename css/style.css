@@ -83,8 +83,14 @@ body {
     background-image: url('../images/doorBack.png.svg');
     justify-content: center;
     height: 800px;
+    width: 440px;
+    max-width: 100%;
+    
+
+
     position: relative;
     z-index: 1000;
+
 }
 .enter{
   position: absolute;
@@ -570,6 +576,7 @@ h1 {
   }
   .doors {
     height: 780px;
+     width: 430px;
   }
   .lights {
     width: 1154px;
@@ -595,6 +602,7 @@ h1 {
   }
   .doors {
     height: 580px;
+    width: 318px;
   }
   .first .windows {
     margin-top: 0;
@@ -776,6 +784,7 @@ h1 {
   }
   .doors {
     height: 480px;
+    width: 255px;
   }
   .Ftext{
  
