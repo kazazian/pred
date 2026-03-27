@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const sound2=new Audio("images/opening.mp3");
       sound2.play();
     })
-
     const handsElement = document.querySelector('[data-js="hands"]');
     const ribbonElement = document.querySelector('[data-js="ribbon"]');
     const secondSection = document.querySelector('[data-js="second-screen"]');
@@ -36,8 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const containerOfWindows = document.querySelector(
       "[data-js='second-screen-windows-container']",
     );
-
-    function smoothScrollToSection(sectionElement, duration, offset = 0) {
+    function smoothScrollToSection(sectionElement, duration, offset = 0, easing = "linear") {
       const startY = window.scrollY;
       const targetY = sectionElement.getBoundingClientRect().top + startY + offset;
       const distance = targetY - startY;
@@ -46,8 +44,12 @@ document.addEventListener('DOMContentLoaded', () => {
       function animateScroll(now) {
         const elapsed = now - startTime;
         const progress = Math.min(elapsed / duration, 1);
-        window.scrollTo(0, startY + distance * progress);
+        const easedProgress =
+          easing === "easeOut"
+            ? 1 - Math.pow(1 - progress, 3)
+            : progress;
 
+        window.scrollTo(0, startY + distance * easedProgress);
         if (progress < 1) {
           requestAnimationFrame(animateScroll);
         }
@@ -79,13 +81,12 @@ document.addEventListener('DOMContentLoaded', () => {
       const sectionRect = secondSection.getBoundingClientRect();
       const ribbonRect = ribbonElement.getBoundingClientRect();
       const ribbonTop = handsRect.bottom - sectionRect.top - ribbonRect.height / 2;
-
       ribbonElement.style.top = `${ribbonTop}px`;
       ribbonElement.style.bottom = "auto";
     }
 
     enterElement.addEventListener("click", () => {
-      smoothScrollToSection(secondSection, 2200, 20);
+      smoothScrollToSection(secondSection, 2200, 20, "easeOut");
     });
 
 const tablePositions = {
@@ -108,7 +109,6 @@ let activePointerId = null;
 let itemWidth = 0;
 let itemHeight = 0;
 let wasOnTable = false;
-
 function getScreenMode() {
   if (window.innerWidth > 1024) {
     return "desktop";
@@ -117,24 +117,19 @@ function getScreenMode() {
   if (window.innerWidth < 500) {
     return "mobileSmall";
   }
-
   return "mobile";
 }
-
 function getItemType(item) {
   return item.classList.contains("tourch") ? "torch" : "phone";
 }
-
 function isPointInside(x, y, rect) {
   return x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom;
 }
-
 function returnItemToHands(item) {
   handsElement.appendChild(item);
   item.classList.remove("on-table");
   item.removeAttribute("style");
 }
-
 function putItemOnTable(item) {
   const tableRect = tableContainer.getBoundingClientRect();
   const mode = getScreenMode();
@@ -174,7 +169,6 @@ function startDrag(item, event) {
   item.style.height = `${itemHeight}px`;
   item.style.margin = "0";
   item.style.zIndex = "9999";
-
   document.body.appendChild(item);
 }
 
@@ -288,7 +282,6 @@ window.addEventListener("pointercancel", endDrag);
           "show-extra",
           hasSwitched && !switchIsOn,
         );
-
         if (switchIsOn) {
           fourthSection.classList.add("fire-active");
           startFireAnimation();
@@ -303,7 +296,6 @@ window.addEventListener("pointercancel", endDrag);
           fireElement.src = fireFrames[fireFrameIndex];
         }
       }
-
       switchElement.addEventListener("click", () => {
         hasSwitched = true;
         switchIsOn = !switchIsOn;
@@ -312,7 +304,6 @@ window.addEventListener("pointercancel", endDrag);
 
       updateFourthScreen();
     }
-
     starLayers.forEach((starLayer) => {
       const SPIN_DURATION = 1200;
       const STOP_DURATION = 3000;
